@@ -1,0 +1,46 @@
+#form-container{
+    height: calc(100vh - 84px - 134px - 80px);
+}
+
+#form>div{
+    margin-top: 2rem;
+}
+
+.option-size {
+    padding: 4.5px;
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
+.flex-direction-form {
+    flex-direction: column;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#form>div>input {
+    height: 2rem;
+    width: 100%;
+    resize: none;
+}
+
+#form>input{
+    margin: 2rem 0 0 0;
+
+}
+
+.text-container{
+    width: 300px;
+}
+
+.error{
+    border-color: red;
+    color: red;
+}
+
+.error-message{
+    width: 100%;
+    padding: 1rem 2px;
+    background: red;
+    color: #FFF;
+}

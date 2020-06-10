@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/item.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/home.css}">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<header th:replace="/fragments/main.html :: header"></header>
+<header th:replace="/fragments/main.html :: menu(user = ${user})"></header>
+
+<div id="wrapper">
+    <section class="flex mx-auto justify-content--center">
+        <div class="text-container-padding-top-2">
+
+            <h3 th:if="${created}">Item'as sekmingai sukurtas!</h3>
+
+            <h1 th:text="${item.itemName}"></h1>
+            <p th:text="|#{item-id}: ${item.id}|"></p>
+            <p th:text="|#{item-category}: ${item.itemCategory}|"></p>
+            <p th:text="|#{item-description}: ${item.description}|"></p>
+            <p th:text="|#{item-value}: ${item.itemValue}|"></p>
+            <p th:text="|#{item-price-for-day}: ${item.itemPriceForDay}|"></p>
+            <img th:src="${item.itemPictureId}" class="picture-size-rem-15">
+
+            <p>
+                <a sec:authorize="hasRole('ADMIN')"
+                   th:href="@{/private/items/item/{id}(id=${item.id})}">Redaguoti</a>
+            </p>
+            <p>
+                <a sec:authorize="hasRole('ADMIN')"
+                   th:href="@{/private/items/item/{id}/delete(id=${item.id})}">Ištrinti</a>
+            </p>
+            <p>
+                <a th:href="@{/private/items/item/{id}(id=${item.id})}"
+                   sec:authorize="not hasRole('ADMIN')">Pirkti</a>
+            </p>
+            <p>
+                <a th:href="@{/private/items/item/{id}(id=${item.id})}">Į krepšelį</a>
+            </p>
+
+        </div>
+    </section>
+
+
+    <footer th:replace="fragments/main.html :: footer"></footer>
+</div>
+</body>
+</html>

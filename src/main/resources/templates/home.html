@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/home.css}">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header th:replace="/fragments/main.html :: header"></header>
+<header th:replace="/fragments/main.html :: menu(user = ${user})"></header>
+
+<section>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="2000">
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-porsche-911-mmp-1-1588282044.png" class="d-block w-100 foto-size" alt="...">
+            </div>
+            <div class="carousel-item" data-interval="2000">
+                <img src="https://s2.15min.lt/images/photos/2017/11/03/original/apple-iphone-x-59fc6f074f87b.jpg" class="d-block w-100 foto-size" alt="...">
+            </div>
+            <div class="carousel-item" data-interval="2000">
+                <img src="https://www.sale24.lt/wp-content/uploads/2019/05/Elektrinis-keturatis-Quad-vaikams-baltas-3.jpg" class="d-block w-100 foto-size" alt="...">
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="/fragments/main.html :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/login.css}">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<header th:replace="/fragments/main.html :: header"></header>
+<header th:replace="/fragments/main.html :: menu"></header>
+
+<section id="login" class="mx-auto container-wide info-container flex justify-content--center">
+    <div>
+        <div th:if="${param.error}">Blogi prisijungimo duomenys.</div>
+        <div th:if="${param.logout}">Jūs sėkmingai atsijungėte.</div>
+
+        <form th:action="@{/login-submit}" method="POST">
+            <p th:text="#{vartotojoVardas}">Username</p>
+            <input type="text" name="user">
+            <p th:text="#{slaptazodis}">Password</p>
+            <input type="password" name="pass">
+            <button type="submit" th:action="@{/public/home}" th:text="#{pateikti}">Submit</button>
+        </form>
+    </div>
+</section>
+
+<footer th:replace="/fragments/main.html :: footer"></footer>
+
+</body>
+</html>

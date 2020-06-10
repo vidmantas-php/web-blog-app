@@ -1,0 +1,52 @@
+<html
+        xmlns:th="https://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<th:block th:fragment="header" th:with="user = ${#authentication.principal}">
+    <header class="bg-light p-1">
+        <nav class="mx-auto flex justify-content--space-evenly align-items--center">
+            <a href="">
+                <img src="https://cdn2.iconfinder.com/data/icons/video-game-items-concepts/128/loot-box-512.png"
+                     alt="Logo" class="logo">
+            </a>
+            <h1 class="company-name-font">Random company</h1>
+            <div class="flex">
+                <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="btn" th:text="#{login}">login</a>
+                <a sec:authorize="!isAuthenticated()" th:href="@{/public/items}" class="btn" th:text="#{register}">register</a>
+                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+                    <span th:text="|#{hi}, ${user.fullName}|"></span>
+                    <button class="btn form-btn" type="submit" th:text="#{logout}"></button>
+                </form>
+
+                <a th:href="@{?lang=lt}">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg" class="language-flags" alt="...">
+                </a>
+                <a th:href="@{?lang=en}">
+                    <img src="https://pngimg.com/uploads/flags/flags_PNG14656.png" class="language-flags" alt="...">
+                </a>
+            </div>
+        </nav>
+    </header>
+</th:block>
+<!--Menu-->
+
+<section id="menu" th:fragment="menu" th:with="user = ${#authentication.principal}" class="bg-light flex justify-content--center">
+    <section class="container-wide flex justify-content--center">
+        <div>
+            <a class="btn" th:text="#{home}" th:href="@{/public/items/home}">home</a>
+            <a class="btn" th:text="#{items}" th:href="@{/public/items}">items</a>
+            <a class="btn" th:text="#{about}" th:href="@{/public/items/about}">about</a>
+            <a class="btn" th:text="#{contact}" th:href="@{/public/items}">contact</a>
+            <a class="btn" th:text="#{items}" th:href="@{/public/items}">items3</a>
+            <a class="btn" th:text="#{items}" th:href="@{/public/items}">items4</a>
+            <a class="btn" sec:authorize="hasRole('ADMIN')" th:text="#{new_item}" th:href="@{/private/items/item}">new item</a>
+        </div>
+    </section>
+</section>
+<!--Footer-->
+
+<footer th:fragment="footer">
+    <div class="footer">
+        <p>Copyrights 2020</p>
+    </div>
+</footer></html>

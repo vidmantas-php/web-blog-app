@@ -1,0 +1,33 @@
+#items-grid{
+    height: calc(100vh - 84px - 134px - 80px - 50px - 50px);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.img-bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  background-color: #8fbc8f;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.img-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.item-name {
+    margin: 0;
+    padding-left: 40%;
+}
+
+.card-box-border-none {
+    border: none;
+}
+
+.item-name-card {
+    padding: 0.5rem;
+}
