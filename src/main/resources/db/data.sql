@@ -14,7 +14,7 @@ INSERT INTO Categories(category)
 
 
 INSERT INTO Items(item_name, item_category, description, item_value, price_for_day, item_picture_id) VALUES('Atsuktuvas', 'Irankiai', 'Puikiai suka', 12.50, 3.5, 'https://www.lemona.lt/LIUSE/Images/9SD-201A.jpg');
-INSERT INTO Items(item_name, item_category, description, item_value, price_for_day, item_picture_id) VALUES('Graztas', 'Irankiai', 'Puikiai grezia', 150.50, 30.23, 'https://lh3.googleusercontent.com/proxy/Yxf16O8hMEDCzKYu7_URxkX8tcEH6Hw5gYS51t-6b2XmSy8n5f2RJW_yBxL-VzPY1Pfr1suamUvNl-3bBAJ7PQDwpqyRnFLJLhgC16lJEGvzuDjgiHdaMFszQREfTAVD');
+INSERT INTO Items(item_name, item_category, description, item_value, price_for_day, item_picture_id) VALUES('Graztas', 'Irankiai', 'Puikiai grezia', 150.50, 30.23, 'https://lh3.googleusercontent.com/proxy/4kUjPLbNzf_Dxy69RQS-kKzBRRSlMJVrMEvsmWKs-3V5-EUkke8r6i3z5wv31JCN-ueqykZRsZ0G5lPbLgDGa3pJI8hn0OGRvrmsISDBlRHCCFZ4pUoqSWAVcbryGf2b');
 INSERT INTO Items(item_name, item_category, description, item_value, price_for_day, item_picture_id) VALUES('Plaktukas', 'Irankiai', 'Puikiai kala', 12.50, 15.24, 'https://www.bausa.lt/image/cache/data/bausa_db/products/3253561515057/5ba10cc9a98e6-500x500.jpg');
 INSERT INTO Items(item_name, item_category, description, item_value, price_for_day, item_picture_id) VALUES('Vinis', 'Irankiai', 'Puikiai laiko', 2.50, 0.51, 'https://matuok24.lt/image/cache/data/59_0-500x500.jpg');
 INSERT INTO Items(item_name, item_category, description, item_value, price_for_day, item_picture_id) VALUES('Baravykas', 'Maistas', 'Skanus', 1.50, 0.89, 'https://img.diena.lt/sites/default/files/styles/500x500/public/Klaipeda/img_2704.jpg?itok=xyFK8exh');
