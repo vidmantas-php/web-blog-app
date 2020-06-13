@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/itemform.css}">
+    <link rel="stylesheet" type="text/javascript" th:href="@{/javascript/dropdownbox.js}">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -31,21 +32,35 @@
     <p th:if="*{id != null}" th:text="'Id: ' + *{id}">Id:</p>
     <p>Title:
         <input type="text" th:field="*{itemName}" th:errorclass="error"/>
-        <span th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}" class="error"/>
+        <span th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}" class="error"></span>
     </p>
 
     <p>Category:
+<!--        <input list="hosting-plan" type="text" th:field="*{itemCategory}">-->
         <select class="option-size" th:field="*{itemCategory}">
-<!--            <div th:each="categories : ${categories}">-->
-<!--                <option th:text="${categories.category}">Elektronika</option>-->
-                        <option value ="category">Select category</option>
-                        <option value ="elektronika">Elektronika</option>
-                        <option value ="buitine technika">Buitine technika</option>
-                        <option value ="maisto prekes">Maisto prekes</option>
-                        <option value ="knygos">Knygos</option>
-                        <option value ="irankiai">Irankiai</option>
+            <option value ="category">Select category</option>-->
+<!--        <datalist id="hosting-plan">-->
+            <div th:each="categories : ${categories}">
+                <option th:text="${categories.category}"></option>
             </div>
+<!--        </datalist>-->
+<!--                        <option value ="category">Select category</option>-->
+<!--                        <option value ="elektronika">Elektronika</option>-->
+<!--                        <option value ="buitine technika">Buitine technika</option>-->
+<!--                        <option value ="maisto prekes">Maisto prekes</option>-->
+<!--                        <option value ="knygos">Knygos</option>-->
+<!--                        <option value ="irankiai">Irankiai</option>-->
+<!--            </div>-->
+<!--        <select id="ddselect" onchange="ddlselect();">-->
+<!--            <option>Select category</option>-->
+<!--            <option>Elektronika</option>-->
+<!--            <option>Buitine technika</option>-->
+<!--            <option>Maisto prekes</option>-->
+<!--            <option>Knygos</option>-->
+<!--            <option>Irankiai</option>-->
         </select>
+
+<!--        <input type="text" id="txtvalue"/>-->
 
     </p>
 

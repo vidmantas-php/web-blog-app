@@ -2,8 +2,10 @@ package lt.web.demo.controller;
 
 import javax.validation.Valid;
 
+import lt.web.demo.entities.Categories;
 import lt.web.demo.entities.Item;
 import lt.web.demo.entities.User;
+import lt.web.demo.services.CategoriesService;
 import lt.web.demo.services.ItemService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,11 +27,14 @@ import java.util.List;
 @SessionAttributes("created")
 public class ItemPrivateController {
     private ItemService itemService;
+    private CategoriesService categoriesService;
 
     public ItemPrivateController(
-            ItemService itemService
+            ItemService itemService,
+            CategoriesService categoriesService
     ) {
         this.itemService = itemService;
+        this.categoriesService = categoriesService;
     }
 
     @GetMapping("/item/{id}")
@@ -44,6 +49,11 @@ public class ItemPrivateController {
     @GetMapping("/item")
     @PreAuthorize("hasRole('ADMIN')")
     public String createItemForm(Model model) {
+        //
+        List<Categories> categories = categoriesService.getAllCategories();
+
+        model.addAttribute("categories", categories);
+        //
         model.addAttribute("item", new Item());
         return "itemform";
     }
@@ -72,4 +82,5 @@ public class ItemPrivateController {
 
         return "redirect:/public/items/" + newItem.getId();
     }
+
 }

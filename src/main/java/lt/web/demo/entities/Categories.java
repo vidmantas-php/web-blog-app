@@ -24,11 +24,4 @@ public class Categories {
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "itemCategories")
     private Set<Item> items = new HashSet<>(0);
 
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
-    }
 }

@@ -22,7 +22,7 @@ public class ItemService {
 
     public Item getItem(Long id) {
         Item item = itemRepository.findById(id)
-                .orElseThrow(() -> new ItemNotFoundException("Product was not found"));
+                .orElseThrow(() -> new ItemNotFoundException("Item was not found"));
         return item;
     }
 

@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/h2/**", "/login/**", "/public/**", "/assets/**", "/styles/**", "/").permitAll()
+                .antMatchers("/h2/**", "/login/**", "/public/**", "/assets/**", "/styles/**", "/javascript/**", "/").permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .antMatchers("/private/**").authenticated()
                 .anyRequest().authenticated()

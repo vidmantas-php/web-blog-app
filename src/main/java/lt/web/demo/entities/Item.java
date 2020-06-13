@@ -44,10 +44,6 @@ public class Item {
     @NotEmpty
     private String itemPictureId;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "categories_id")
-//    private Categories itemCategories;
-
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Categories itemCategories;
 
