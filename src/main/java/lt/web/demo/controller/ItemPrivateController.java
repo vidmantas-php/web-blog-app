@@ -40,9 +40,11 @@ public class ItemPrivateController {
     @GetMapping("/item/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public String getUpdateItemForm(@PathVariable Long id, Model model, @AuthenticationPrincipal User user) {
+        List<Categories> categories = categoriesService.getAllCategories();
         Item item = itemService.getItem(id);
         model.addAttribute("user", user);
         model.addAttribute("item", item);
+        model.addAttribute("categories", categories);
         return "itemform";
     }
 
